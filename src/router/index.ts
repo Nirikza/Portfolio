@@ -1,23 +1,27 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 
-import Home from '../pages/Home.vue'
-import Projects from '../pages/Projects.vue'
-import About from '../pages/About.vue'
+import About from "../pages/About.vue";
+import Home from "../pages/Home.vue";
+import Projects from "../pages/Projects.vue";
 
 export const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
-      path: '/',
+      path: "/",
       component: Home,
     },
     {
-      path: '/projects',
+      path: "/projects",
       component: Projects,
     },
     {
-      path: '/about',
+      path: "/about",
       component: About,
     },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/",
+    },
   ],
-})
+});
